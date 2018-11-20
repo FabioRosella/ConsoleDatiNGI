@@ -1,0 +1,1095 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DATI_NGIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AntenneInstallate">
+          <Key>
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="odl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="radio" Type="nvarchar" MaxLength="50" />
+          <Property Name="radioStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="kit" Type="nvarchar(max)" />
+          <Property Name="kitDesc" Type="nvarchar(max)" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="data" Type="date" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <!--Errori trovati durante la generazione:
+avviso 6002: Nessuna chiave primaria definita per la tabella/visualizzazione 'DATI_NGI.dbo.Attivazioni-Ordini'. La chiave è stata dedotta e la definizione è stata creata come tabella/visualizzazione di sola lettura.-->
+        <EntityType Name="Attivazioni-Ordini">
+          <Key>
+            <PropertyRef Name="hlan" />
+          </Key>
+          <Property Name="hlan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="stato" Type="nvarchar" MaxLength="50" />
+          <Property Name="data_ordine" Type="date" />
+          <Property Name="data_attivazione" Type="date" />
+          <Property Name="data_modifica" Type="date" />
+          <Property Name="importato" Type="bit" />
+        </EntityType>
+        <EntityType Name="ElencoBTS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="varchar(max)" />
+          <Property Name="model_type_desc" Type="varchar(max)" />
+          <Property Name="lat_site" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long_site" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="altitude_asl" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ElencoLinkOdl">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="odl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="distance" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="tilt" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="azimuth" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="ordine" Type="int" />
+          <Property Name="sconsigliato" Type="bit" />
+        </EntityType>
+        <EntityType Name="EoloCompensi">
+          <Key>
+            <PropertyRef Name="itemodl" />
+          </Key>
+          <Property Name="itemodl" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="100" />
+          <Property Name="sla" Type="nvarchar" MaxLength="10" />
+          <Property Name="data_intervento" Type="date" />
+          <Property Name="compenso" Type="int" />
+          <Property Name="extra" Type="int" />
+          <Property Name="esito" Type="nvarchar" MaxLength="3" />
+          <Property Name="data_inserimento" Type="date" />
+        </EntityType>
+        <EntityType Name="GetElenco">
+          <Key>
+            <PropertyRef Name="itemKEY" />
+          </Key>
+          <Property Name="itemKEY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="date" />
+          <Property Name="sla" Type="varchar" MaxLength="50" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="cap" Type="varchar" MaxLength="5" />
+          <Property Name="comune" Type="varchar" MaxLength="50" />
+          <Property Name="pv" Type="varchar" MaxLength="2" />
+          <Property Name="contatto" Type="varchar" MaxLength="100" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="cel" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="datetime" />
+          <Property Name="tipoWS" Type="varchar" MaxLength="3" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataCreazione" Type="datetime" />
+          <Property Name="dataModifica" Type="datetime" />
+          <Property Name="myvar" Type="bit" />
+          <Property Name="crm_imported" Type="bit" />
+        </EntityType>
+        <EntityType Name="GetElencoAntenneInstallate">
+          <Key>
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="odl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="radio" Type="nvarchar" MaxLength="50" />
+          <Property Name="radioStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="kit" Type="nvarchar" MaxLength="50" />
+          <Property Name="kitDesc" Type="nvarchar(max)" />
+          <Property Name="data" Type="date" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GetElencoATT">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="date" />
+          <Property Name="sla" Type="varchar" MaxLength="50" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="cap" Type="varchar" MaxLength="5" />
+          <Property Name="comune" Type="varchar" MaxLength="50" />
+          <Property Name="pv" Type="varchar" MaxLength="2" />
+          <Property Name="contatto" Type="varchar" MaxLength="100" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="cel" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="myvar" Type="bit" />
+        </EntityType>
+        <EntityType Name="GetElencoBTS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="varchar(max)" />
+          <Property Name="model_type_desc" Type="varchar(max)" />
+          <Property Name="lat_site" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long_site" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="altitude_asl" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GetElencoGST">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="date" />
+          <Property Name="sla" Type="varchar" MaxLength="50" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="cap" Type="varchar" MaxLength="5" />
+          <Property Name="comune" Type="varchar" MaxLength="50" />
+          <Property Name="pv" Type="varchar" MaxLength="2" />
+          <Property Name="contatto" Type="varchar" MaxLength="100" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="cel" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="myvar" Type="bit" />
+        </EntityType>
+        <EntityType Name="GetElencoKitOdl">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="codice" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descrizione" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GetElencoLinkOdl">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="odl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="distance" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="tilt" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="azimuth" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="ordine" Type="int" />
+          <Property Name="sconsigliato" Type="bit" />
+        </EntityType>
+        <EntityType Name="GetElencoLog">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="data" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="note" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GetElencoMagazzinoAntenne">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="nvarchar" MaxLength="50" />
+          <Property Name="seriale" Type="nvarchar" MaxLength="50" />
+          <Property Name="descrizione" Type="nvarchar(max)" />
+          <Property Name="data" Type="date" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GetElencoMagazzinoEolobox">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="nvarchar" MaxLength="50" />
+          <Property Name="seriale" Type="nvarchar" MaxLength="50" />
+          <Property Name="descrizione" Type="nvarchar(max)" />
+          <Property Name="data" Type="date" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GetElencoRIT">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="date" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="cap" Type="varchar" MaxLength="5" />
+          <Property Name="comune" Type="varchar" MaxLength="50" />
+          <Property Name="pv" Type="varchar" MaxLength="2" />
+          <Property Name="contatto" Type="varchar" MaxLength="100" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="cel" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="myvar" Type="bit" />
+        </EntityType>
+        <EntityType Name="GetElencoSOP">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="date" />
+          <Property Name="cliente" Type="varchar" MaxLength="100" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="cap" Type="varchar" MaxLength="5" />
+          <Property Name="comune" Type="varchar" MaxLength="50" />
+          <Property Name="pv" Type="varchar" MaxLength="2" />
+          <Property Name="contatto" Type="varchar" MaxLength="100" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="cel" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="datetime" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="myvar" Type="bit" />
+        </EntityType>
+        <EntityType Name="KitOdl">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="codice" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descrizione" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="data" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="itemODL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="note" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="importato" Type="bit" />
+        </EntityType>
+        <EntityType Name="LogEsecuzione">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataOraInizioEsecuzione" Type="datetime" />
+          <Property Name="DataOraFineEsecuzione" Type="datetime" />
+          <Property Name="Stato" Type="varchar" MaxLength="10" />
+          <Property Name="NumRecordATTInsert" Type="int" />
+          <Property Name="NumRecordATTUpdate" Type="int" />
+        </EntityType>
+        <EntityType Name="MagazzinoAntenne">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="nvarchar" MaxLength="50" />
+          <Property Name="seriale" Type="nvarchar" MaxLength="50" />
+          <Property Name="descrizione" Type="nvarchar(max)" />
+          <Property Name="data" Type="date" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MagazzinoEolobox">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codice" Type="nvarchar" MaxLength="50" />
+          <Property Name="seriale" Type="nvarchar" MaxLength="50" />
+          <Property Name="descrizione" Type="nvarchar(max)" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" />
+          <Property Name="data" Type="date" />
+          <Property Name="data_creazione" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="DATI_NGIModelStoreContainer">
+          <EntitySet Name="AntenneInstallate" EntityType="Self.AntenneInstallate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ElencoBTS" EntityType="Self.ElencoBTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ElencoLinkOdl" EntityType="Self.ElencoLinkOdl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EoloCompensi" EntityType="Self.EoloCompensi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElenco" EntityType="Self.GetElenco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoAntenneInstallate" EntityType="Self.GetElencoAntenneInstallate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoATT" EntityType="Self.GetElencoATT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoBTS" EntityType="Self.GetElencoBTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoGST" EntityType="Self.GetElencoGST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoKitOdl" EntityType="Self.GetElencoKitOdl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoLinkOdl" EntityType="Self.GetElencoLinkOdl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoLog" EntityType="Self.GetElencoLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoMagazzinoAntenne" EntityType="Self.GetElencoMagazzinoAntenne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoMagazzinoEolobox" EntityType="Self.GetElencoMagazzinoEolobox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoRIT" EntityType="Self.GetElencoRIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetElencoSOP" EntityType="Self.GetElencoSOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KitOdl" EntityType="Self.KitOdl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogEsecuzione" EntityType="Self.LogEsecuzione" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MagazzinoAntenne" EntityType="Self.MagazzinoAntenne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MagazzinoEolobox" EntityType="Self.MagazzinoEolobox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attivazioni-Ordini" EntityType="Self.Attivazioni-Ordini" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Attivazioni-Ordini].[hlan] AS [hlan], 
+    [Attivazioni-Ordini].[stato] AS [stato], 
+    [Attivazioni-Ordini].[data_ordine] AS [data_ordine], 
+    [Attivazioni-Ordini].[data_attivazione] AS [data_attivazione], 
+    [Attivazioni-Ordini].[data_modifica] AS [data_modifica], 
+    [Attivazioni-Ordini].[importato] AS [importato]
+    FROM [dbo].[Attivazioni-Ordini] AS [Attivazioni-Ordini]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DATI_NGIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AntenneInstallate">
+          <Key>
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="odl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="radio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="radioStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kitDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ElencoBTS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="model_type_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lat_site" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long_site" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="altitude_asl" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ElencoLinkOdl">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="odl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="distance" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="tilt" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="azimuth" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ordine" Type="Int32" />
+          <Property Name="sconsigliato" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EoloCompensi">
+          <Key>
+            <PropertyRef Name="itemodl" />
+          </Key>
+          <Property Name="itemodl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sla" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="data_intervento" Type="DateTime" Precision="0" />
+          <Property Name="compenso" Type="Int32" />
+          <Property Name="extra" Type="Int32" />
+          <Property Name="esito" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="data_inserimento" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="GetElenco">
+          <Key>
+            <PropertyRef Name="itemKEY" />
+          </Key>
+          <Property Name="itemKEY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="sla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="comune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pv" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="contatto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="DateTime" Precision="3" />
+          <Property Name="tipoWS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dataCreazione" Type="DateTime" Precision="3" />
+          <Property Name="dataModifica" Type="DateTime" Precision="3" />
+          <Property Name="myvar" Type="Boolean" />
+          <Property Name="crm_imported" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetElencoAntenneInstallate">
+          <Key>
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="odl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="radio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="radioStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kitDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GetElencoATT">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="sla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="comune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pv" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="contatto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="myvar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetElencoBTS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="model_type_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lat_site" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long_site" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="altitude_asl" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GetElencoGST">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="sla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="comune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pv" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="contatto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="myvar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetElencoKitOdl">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="codice" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GetElencoLinkOdl">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="odl" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="odl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="distance" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="tilt" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="azimuth" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ordine" Type="Int32" />
+          <Property Name="sconsigliato" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetElencoLog">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="data" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GetElencoMagazzinoAntenne">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seriale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrizione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GetElencoMagazzinoEolobox">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seriale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrizione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GetElencoRIT">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="comune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pv" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="contatto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="myvar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetElencoSOP">
+          <Key>
+            <PropertyRef Name="itemODL" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="comune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pv" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="contatto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="long" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="dataAppuntamento" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="myvar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KitOdl">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="codice" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="itemODL" />
+            <PropertyRef Name="data" />
+            <PropertyRef Name="note" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="itemODL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="importato" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LogEsecuzione">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataOraInizioEsecuzione" Type="DateTime" Precision="3" />
+          <Property Name="DataOraFineEsecuzione" Type="DateTime" Precision="3" />
+          <Property Name="Stato" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NumRecordATTInsert" Type="Int32" />
+          <Property Name="NumRecordATTUpdate" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MagazzinoAntenne">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seriale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrizione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MagazzinoEolobox">
+          <Key>
+            <PropertyRef Name="macaddr" />
+          </Key>
+          <Property Name="macaddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="seriale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrizione" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="data_creazione" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Attivazioni_Ordini">
+          <Key>
+            <PropertyRef Name="hlan" />
+          </Key>
+          <Property Name="hlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data_ordine" Type="DateTime" Precision="0" />
+          <Property Name="data_attivazione" Type="DateTime" Precision="0" />
+          <Property Name="data_modifica" Type="DateTime" Precision="0" />
+          <Property Name="importato" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="DATI_NGIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AntenneInstallate" EntityType="Self.AntenneInstallate" />
+          <EntitySet Name="ElencoBTS" EntityType="Self.ElencoBTS" />
+          <EntitySet Name="ElencoLinkOdl" EntityType="Self.ElencoLinkOdl" />
+          <EntitySet Name="EoloCompensi" EntityType="Self.EoloCompensi" />
+          <EntitySet Name="GetElenco" EntityType="Self.GetElenco" />
+          <EntitySet Name="GetElencoAntenneInstallate" EntityType="Self.GetElencoAntenneInstallate" />
+          <EntitySet Name="GetElencoATT" EntityType="Self.GetElencoATT" />
+          <EntitySet Name="GetElencoBTS" EntityType="Self.GetElencoBTS" />
+          <EntitySet Name="GetElencoGST" EntityType="Self.GetElencoGST" />
+          <EntitySet Name="GetElencoKitOdl" EntityType="Self.GetElencoKitOdl" />
+          <EntitySet Name="GetElencoLinkOdl" EntityType="Self.GetElencoLinkOdl" />
+          <EntitySet Name="GetElencoLog" EntityType="Self.GetElencoLog" />
+          <EntitySet Name="GetElencoMagazzinoAntenne" EntityType="Self.GetElencoMagazzinoAntenne" />
+          <EntitySet Name="GetElencoMagazzinoEolobox" EntityType="Self.GetElencoMagazzinoEolobox" />
+          <EntitySet Name="GetElencoRIT" EntityType="Self.GetElencoRIT" />
+          <EntitySet Name="GetElencoSOP" EntityType="Self.GetElencoSOP" />
+          <EntitySet Name="KitOdl" EntityType="Self.KitOdl" />
+          <EntitySet Name="Log" EntityType="Self.Log" />
+          <EntitySet Name="LogEsecuzione" EntityType="Self.LogEsecuzione" />
+          <EntitySet Name="MagazzinoAntenne" EntityType="Self.MagazzinoAntenne" />
+          <EntitySet Name="MagazzinoEolobox" EntityType="Self.MagazzinoEolobox" />
+          <EntitySet Name="Attivazioni_Ordini" EntityType="Self.Attivazioni_Ordini" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DATI_NGIModelStoreContainer" CdmEntityContainer="DATI_NGIEntities">
+          <EntitySetMapping Name="AntenneInstallate">
+            <EntityTypeMapping TypeName="DATI_NGIModel.AntenneInstallate">
+              <MappingFragment StoreEntitySet="AntenneInstallate">
+                <ScalarProperty Name="odl" ColumnName="odl" />
+                <ScalarProperty Name="radio" ColumnName="radio" />
+                <ScalarProperty Name="radioStatus" ColumnName="radioStatus" />
+                <ScalarProperty Name="kit" ColumnName="kit" />
+                <ScalarProperty Name="kitDesc" ColumnName="kitDesc" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElencoBTS">
+            <EntityTypeMapping TypeName="DATI_NGIModel.ElencoBTS">
+              <MappingFragment StoreEntitySet="ElencoBTS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="model_type_desc" ColumnName="model_type_desc" />
+                <ScalarProperty Name="lat_site" ColumnName="lat_site" />
+                <ScalarProperty Name="long_site" ColumnName="long_site" />
+                <ScalarProperty Name="altitude_asl" ColumnName="altitude_asl" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElencoLinkOdl">
+            <EntityTypeMapping TypeName="DATI_NGIModel.ElencoLinkOdl">
+              <MappingFragment StoreEntitySet="ElencoLinkOdl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="odl" ColumnName="odl" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="tilt" ColumnName="tilt" />
+                <ScalarProperty Name="azimuth" ColumnName="azimuth" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="ordine" ColumnName="ordine" />
+                <ScalarProperty Name="sconsigliato" ColumnName="sconsigliato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EoloCompensi">
+            <EntityTypeMapping TypeName="DATI_NGIModel.EoloCompensi">
+              <MappingFragment StoreEntitySet="EoloCompensi">
+                <ScalarProperty Name="itemodl" ColumnName="itemodl" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="sla" ColumnName="sla" />
+                <ScalarProperty Name="data_intervento" ColumnName="data_intervento" />
+                <ScalarProperty Name="compenso" ColumnName="compenso" />
+                <ScalarProperty Name="extra" ColumnName="extra" />
+                <ScalarProperty Name="esito" ColumnName="esito" />
+                <ScalarProperty Name="data_inserimento" ColumnName="data_inserimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElenco">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElenco">
+              <MappingFragment StoreEntitySet="GetElenco">
+                <ScalarProperty Name="itemKEY" ColumnName="itemKEY" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="sla" ColumnName="sla" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="comune" ColumnName="comune" />
+                <ScalarProperty Name="pv" ColumnName="pv" />
+                <ScalarProperty Name="contatto" ColumnName="contatto" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+                <ScalarProperty Name="tipoWS" ColumnName="tipoWS" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="dataCreazione" ColumnName="dataCreazione" />
+                <ScalarProperty Name="dataModifica" ColumnName="dataModifica" />
+                <ScalarProperty Name="myvar" ColumnName="myvar" />
+                <ScalarProperty Name="crm_imported" ColumnName="crm_imported" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoAntenneInstallate">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoAntenneInstallate">
+              <MappingFragment StoreEntitySet="GetElencoAntenneInstallate">
+                <ScalarProperty Name="odl" ColumnName="odl" />
+                <ScalarProperty Name="radio" ColumnName="radio" />
+                <ScalarProperty Name="radioStatus" ColumnName="radioStatus" />
+                <ScalarProperty Name="kit" ColumnName="kit" />
+                <ScalarProperty Name="kitDesc" ColumnName="kitDesc" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoATT">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoATT">
+              <MappingFragment StoreEntitySet="GetElencoATT">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="sla" ColumnName="sla" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="comune" ColumnName="comune" />
+                <ScalarProperty Name="pv" ColumnName="pv" />
+                <ScalarProperty Name="contatto" ColumnName="contatto" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="myvar" ColumnName="myvar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoBTS">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoBTS">
+              <MappingFragment StoreEntitySet="GetElencoBTS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="model_type_desc" ColumnName="model_type_desc" />
+                <ScalarProperty Name="lat_site" ColumnName="lat_site" />
+                <ScalarProperty Name="long_site" ColumnName="long_site" />
+                <ScalarProperty Name="altitude_asl" ColumnName="altitude_asl" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoGST">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoGST">
+              <MappingFragment StoreEntitySet="GetElencoGST">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="sla" ColumnName="sla" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="comune" ColumnName="comune" />
+                <ScalarProperty Name="pv" ColumnName="pv" />
+                <ScalarProperty Name="contatto" ColumnName="contatto" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="myvar" ColumnName="myvar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoKitOdl">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoKitOdl">
+              <MappingFragment StoreEntitySet="GetElencoKitOdl">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoLinkOdl">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoLinkOdl">
+              <MappingFragment StoreEntitySet="GetElencoLinkOdl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="odl" ColumnName="odl" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="tilt" ColumnName="tilt" />
+                <ScalarProperty Name="azimuth" ColumnName="azimuth" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="ordine" ColumnName="ordine" />
+                <ScalarProperty Name="sconsigliato" ColumnName="sconsigliato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoLog">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoLog">
+              <MappingFragment StoreEntitySet="GetElencoLog">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoMagazzinoAntenne">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoMagazzinoAntenne">
+              <MappingFragment StoreEntitySet="GetElencoMagazzinoAntenne">
+                <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="seriale" ColumnName="seriale" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoMagazzinoEolobox">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoMagazzinoEolobox">
+              <MappingFragment StoreEntitySet="GetElencoMagazzinoEolobox">
+                <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="seriale" ColumnName="seriale" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoRIT">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoRIT">
+              <MappingFragment StoreEntitySet="GetElencoRIT">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="comune" ColumnName="comune" />
+                <ScalarProperty Name="pv" ColumnName="pv" />
+                <ScalarProperty Name="contatto" ColumnName="contatto" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="myvar" ColumnName="myvar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetElencoSOP">
+            <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoSOP">
+              <MappingFragment StoreEntitySet="GetElencoSOP">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="comune" ColumnName="comune" />
+                <ScalarProperty Name="pv" ColumnName="pv" />
+                <ScalarProperty Name="contatto" ColumnName="contatto" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="myvar" ColumnName="myvar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KitOdl">
+            <EntityTypeMapping TypeName="DATI_NGIModel.KitOdl">
+              <MappingFragment StoreEntitySet="KitOdl">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="DATI_NGIModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="importato" ColumnName="importato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogEsecuzione">
+            <EntityTypeMapping TypeName="DATI_NGIModel.LogEsecuzione">
+              <MappingFragment StoreEntitySet="LogEsecuzione">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="DataOraInizioEsecuzione" ColumnName="DataOraInizioEsecuzione" />
+                <ScalarProperty Name="DataOraFineEsecuzione" ColumnName="DataOraFineEsecuzione" />
+                <ScalarProperty Name="Stato" ColumnName="Stato" />
+                <ScalarProperty Name="NumRecordATTInsert" ColumnName="NumRecordATTInsert" />
+                <ScalarProperty Name="NumRecordATTUpdate" ColumnName="NumRecordATTUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MagazzinoAntenne">
+            <EntityTypeMapping TypeName="DATI_NGIModel.MagazzinoAntenne">
+              <MappingFragment StoreEntitySet="MagazzinoAntenne">
+                <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="seriale" ColumnName="seriale" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MagazzinoEolobox">
+            <EntityTypeMapping TypeName="DATI_NGIModel.MagazzinoEolobox">
+              <MappingFragment StoreEntitySet="MagazzinoEolobox">
+                <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+                <ScalarProperty Name="codice" ColumnName="codice" />
+                <ScalarProperty Name="seriale" ColumnName="seriale" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attivazioni_Ordini">
+            <EntityTypeMapping TypeName="DATI_NGIModel.Attivazioni_Ordini">
+              <MappingFragment StoreEntitySet="Attivazioni-Ordini">
+                <ScalarProperty Name="hlan" ColumnName="hlan" />
+                <ScalarProperty Name="stato" ColumnName="stato" />
+                <ScalarProperty Name="data_ordine" ColumnName="data_ordine" />
+                <ScalarProperty Name="data_attivazione" ColumnName="data_attivazione" />
+                <ScalarProperty Name="data_modifica" ColumnName="data_modifica" />
+                <ScalarProperty Name="importato" ColumnName="importato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DATI_NGIModelStoreContainer" CdmEntityContainer="DATI_NGIEntities">
+    <EntitySetMapping Name="AntenneInstallate">
+      <EntityTypeMapping TypeName="DATI_NGIModel.AntenneInstallate">
+        <MappingFragment StoreEntitySet="AntenneInstallate">
+          <ScalarProperty Name="odl" ColumnName="odl" />
+          <ScalarProperty Name="radio" ColumnName="radio" />
+          <ScalarProperty Name="radioStatus" ColumnName="radioStatus" />
+          <ScalarProperty Name="kit" ColumnName="kit" />
+          <ScalarProperty Name="kitDesc" ColumnName="kitDesc" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElencoBTS">
+      <EntityTypeMapping TypeName="DATI_NGIModel.ElencoBTS">
+        <MappingFragment StoreEntitySet="ElencoBTS">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="model_type_desc" ColumnName="model_type_desc" />
+          <ScalarProperty Name="lat_site" ColumnName="lat_site" />
+          <ScalarProperty Name="long_site" ColumnName="long_site" />
+          <ScalarProperty Name="altitude_asl" ColumnName="altitude_asl" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElencoLinkOdl">
+      <EntityTypeMapping TypeName="DATI_NGIModel.ElencoLinkOdl">
+        <MappingFragment StoreEntitySet="ElencoLinkOdl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="odl" ColumnName="odl" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="tilt" ColumnName="tilt" />
+          <ScalarProperty Name="azimuth" ColumnName="azimuth" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="ordine" ColumnName="ordine" />
+          <ScalarProperty Name="sconsigliato" ColumnName="sconsigliato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EoloCompensi">
+      <EntityTypeMapping TypeName="DATI_NGIModel.EoloCompensi">
+        <MappingFragment StoreEntitySet="EoloCompensi">
+          <ScalarProperty Name="itemodl" ColumnName="itemodl" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="sla" ColumnName="sla" />
+          <ScalarProperty Name="data_intervento" ColumnName="data_intervento" />
+          <ScalarProperty Name="compenso" ColumnName="compenso" />
+          <ScalarProperty Name="extra" ColumnName="extra" />
+          <ScalarProperty Name="esito" ColumnName="esito" />
+          <ScalarProperty Name="data_inserimento" ColumnName="data_inserimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElenco">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElenco">
+        <MappingFragment StoreEntitySet="GetElenco">
+          <ScalarProperty Name="itemKEY" ColumnName="itemKEY" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="sla" ColumnName="sla" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="cap" ColumnName="cap" />
+          <ScalarProperty Name="comune" ColumnName="comune" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="contatto" ColumnName="contatto" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+          <ScalarProperty Name="tipoWS" ColumnName="tipoWS" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="dataCreazione" ColumnName="dataCreazione" />
+          <ScalarProperty Name="dataModifica" ColumnName="dataModifica" />
+          <ScalarProperty Name="myvar" ColumnName="myvar" />
+          <ScalarProperty Name="crm_imported" ColumnName="crm_imported" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoAntenneInstallate">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoAntenneInstallate">
+        <MappingFragment StoreEntitySet="GetElencoAntenneInstallate">
+          <ScalarProperty Name="odl" ColumnName="odl" />
+          <ScalarProperty Name="radio" ColumnName="radio" />
+          <ScalarProperty Name="radioStatus" ColumnName="radioStatus" />
+          <ScalarProperty Name="kit" ColumnName="kit" />
+          <ScalarProperty Name="kitDesc" ColumnName="kitDesc" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoATT">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoATT">
+        <MappingFragment StoreEntitySet="GetElencoATT">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="sla" ColumnName="sla" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="cap" ColumnName="cap" />
+          <ScalarProperty Name="comune" ColumnName="comune" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="contatto" ColumnName="contatto" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="myvar" ColumnName="myvar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoBTS">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoBTS">
+        <MappingFragment StoreEntitySet="GetElencoBTS">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="model_type_desc" ColumnName="model_type_desc" />
+          <ScalarProperty Name="lat_site" ColumnName="lat_site" />
+          <ScalarProperty Name="long_site" ColumnName="long_site" />
+          <ScalarProperty Name="altitude_asl" ColumnName="altitude_asl" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoGST">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoGST">
+        <MappingFragment StoreEntitySet="GetElencoGST">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="sla" ColumnName="sla" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="cap" ColumnName="cap" />
+          <ScalarProperty Name="comune" ColumnName="comune" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="contatto" ColumnName="contatto" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="myvar" ColumnName="myvar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoKitOdl">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoKitOdl">
+        <MappingFragment StoreEntitySet="GetElencoKitOdl">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoLinkOdl">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoLinkOdl">
+        <MappingFragment StoreEntitySet="GetElencoLinkOdl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="odl" ColumnName="odl" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="tilt" ColumnName="tilt" />
+          <ScalarProperty Name="azimuth" ColumnName="azimuth" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="ordine" ColumnName="ordine" />
+          <ScalarProperty Name="sconsigliato" ColumnName="sconsigliato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoLog">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoLog">
+        <MappingFragment StoreEntitySet="GetElencoLog">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="login" ColumnName="login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoMagazzinoAntenne">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoMagazzinoAntenne">
+        <MappingFragment StoreEntitySet="GetElencoMagazzinoAntenne">
+          <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="seriale" ColumnName="seriale" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoMagazzinoEolobox">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoMagazzinoEolobox">
+        <MappingFragment StoreEntitySet="GetElencoMagazzinoEolobox">
+          <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="seriale" ColumnName="seriale" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoRIT">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoRIT">
+        <MappingFragment StoreEntitySet="GetElencoRIT">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="cap" ColumnName="cap" />
+          <ScalarProperty Name="comune" ColumnName="comune" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="contatto" ColumnName="contatto" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="myvar" ColumnName="myvar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetElencoSOP">
+      <EntityTypeMapping TypeName="DATI_NGIModel.GetElencoSOP">
+        <MappingFragment StoreEntitySet="GetElencoSOP">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="cap" ColumnName="cap" />
+          <ScalarProperty Name="comune" ColumnName="comune" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="contatto" ColumnName="contatto" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="dataAppuntamento" ColumnName="dataAppuntamento" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="myvar" ColumnName="myvar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KitOdl">
+      <EntityTypeMapping TypeName="DATI_NGIModel.KitOdl">
+        <MappingFragment StoreEntitySet="KitOdl">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="DATI_NGIModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="itemODL" ColumnName="itemODL" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="importato" ColumnName="importato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogEsecuzione">
+      <EntityTypeMapping TypeName="DATI_NGIModel.LogEsecuzione">
+        <MappingFragment StoreEntitySet="LogEsecuzione">
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="DataOraInizioEsecuzione" ColumnName="DataOraInizioEsecuzione" />
+          <ScalarProperty Name="DataOraFineEsecuzione" ColumnName="DataOraFineEsecuzione" />
+          <ScalarProperty Name="Stato" ColumnName="Stato" />
+          <ScalarProperty Name="NumRecordATTInsert" ColumnName="NumRecordATTInsert" />
+          <ScalarProperty Name="NumRecordATTUpdate" ColumnName="NumRecordATTUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MagazzinoAntenne">
+      <EntityTypeMapping TypeName="DATI_NGIModel.MagazzinoAntenne">
+        <MappingFragment StoreEntitySet="MagazzinoAntenne">
+          <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="seriale" ColumnName="seriale" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MagazzinoEolobox">
+      <EntityTypeMapping TypeName="DATI_NGIModel.MagazzinoEolobox">
+        <MappingFragment StoreEntitySet="MagazzinoEolobox">
+          <ScalarProperty Name="macaddr" ColumnName="macaddr" />
+          <ScalarProperty Name="codice" ColumnName="codice" />
+          <ScalarProperty Name="seriale" ColumnName="seriale" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="data_creazione" ColumnName="data_creazione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attivazioni_Ordini">
+      <EntityTypeMapping TypeName="DATI_NGIModel.Attivazioni_Ordini">
+        <MappingFragment StoreEntitySet="Attivazioni-Ordini">
+          <ScalarProperty Name="hlan" ColumnName="hlan" />
+          <ScalarProperty Name="stato" ColumnName="stato" />
+          <ScalarProperty Name="data_ordine" ColumnName="data_ordine" />
+          <ScalarProperty Name="data_attivazione" ColumnName="data_attivazione" />
+          <ScalarProperty Name="data_modifica" ColumnName="data_modifica" />
+          <ScalarProperty Name="importato" ColumnName="importato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

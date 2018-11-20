@@ -1,0 +1,26 @@
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\frosella\Documents\Visual Studio 2017\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\frosella\Documents\Progetti\ConsoleDatiNGI\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
